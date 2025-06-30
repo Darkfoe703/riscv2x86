@@ -1,8 +1,10 @@
 # RISCV2x86
+<img alt="RISCV2x86" src="https://github.com/Darkfoe703/riscv2x86/blob/main/assets/riscv2x86.png" width="100%" height="15%">
+
 > ##### English
 
 **RISCV2x86** is a project aimed at creating an MVP (_Minimum Viable Product_) capable of **translating code** written for RISC-V into x86-64 assembly, using GAS syntax.
-<img alt="RISCV2x86" src="https://github.com/Darkfoe703/riscv2x86/blob/main/assets/riscv2x86.png" width="100%" height="15%">
+
 This project was developed as the final assignment for the **Computer Architecture** course, led by [Professor Cristian Pacheco](https://mailto:cristian@cristian-pacheco.com.ar) and [Professor Paula Kolln](https://mailto:kollnpaula@gmail.com), as part of the **Bachelor’s Degree in Computer Science** at the **National University of Patagonia San Juan Bosco** ([UNPSJB](https://www.unp.edu.ar/)), Puerto Madryn, Argentina.
 
 The **primary goal** is to deepen the understanding of **CISC** and **RISC** architectures, demonstrate acquired knowledge, and build a practical development tool.  
