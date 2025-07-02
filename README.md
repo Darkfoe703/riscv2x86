@@ -10,9 +10,11 @@ This project was developed as the final assignment for the **Computer Architectu
 The **primary goal** is to deepen the understanding of **CISC** and **RISC** architectures, demonstrate acquired knowledge, and build a practical development tool.  
 As a **secondary objective**, the developer aims to improve their skills in the Go programming language.
 
-<img alt="UNPSJB logo" src="https://www.unp.edu.ar/images/principal/logo.png" width="15%" height="15%">
+<img alt="UNPSJB logo" src="https://github.com/Darkfoe703/riscv2x86/blob/main/assets/logo-unpsjb.png" width="15%" height="15%">
 
  - [University repository](https://github.com/UNPSJB)
+
+ ## Dev Notes
 
 ---
 
