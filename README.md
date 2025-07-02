@@ -26,3 +26,6 @@ El proyecto nace como el trabajo final para la cátedra Arquitectura de Computad
 
 El **objetivo** es comprender las arquitecturas **CISC** y **RISC**, demostrar conocimientos y a la vez crear una herramienta de desarrollo.
 Como **objetivo secundario** se persigue la práctica y mejora del manejo del lenguaje Go, por parte de su desarrollador.
+
+## Notas de Desarrollo
+ Puede seguirse el desarrollo del proyecyo en el siguiente [enlace](https://github.com/Darkfoe703/riscv2x86/blob/2d12ec3055122c37a44c80ddafcff38b86a307b1/docs/DEV_NOTES.ES.md), por ahora solo en español.
