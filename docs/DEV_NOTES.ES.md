@@ -110,11 +110,54 @@ En x86-64 el registro %rbx cumple el mismo rol.
 Traducción directa de x9 a %rbx
 ```
 #### x10 a x17, **`a0` a `a7`**, Argumentos o Retornos
-> Es decir, con estos registros se pasan datos a una función par trabajar con ellos y se reciben los resultados de las funciones una vez finalizadas. Los pongo en una tabla porque hay algunos detalles que revisar
+> Con estos registros se pasan datos a una función par trabajar con ellos y se reciben los resultados de las funciones una vez finalizadas. Los pongo en una tabla porque hay algunos detalles que revisar
 
 | DIreccion | Nombre | Trad. x86 | Uso |
 |--|--|--|--|
-|x10|a0|%rdi|1er arg.
+|x10|a0|%rdi|1er arg.|
+|x11|a1|%rsi|2do arg.|
+|x12|a2|%rdx|3er arg|
+|x13|a3|%rcx|4to arg.|
+|x14|a4|%r8|5to arg|
+|x15|a5|%r9|6to arg.|
+|x16|a6| - |*syscall ID* en Linux|
+|x17|a7| - |*ecall code* interno de RISC-V|
+
+El `x17` de RISC-V con sus ecalls puede traducirse con `%rax`(*syscall ID*). Por otro lado `x16` podría omitirse. TODO: ver
+
+#### x18 a x27, **`s2` a `s11`**, Saved registers
+```
+Preservados entre llamadas, usados en funciones.
+En x86-64 de los ya usados (por esta traducción), qeudan disponibles: %r13, %r14, %r15
+Traducción directa
+    s2 (x18) a %r13
+    s3 (x19) a %r14
+    s4 (x20) a %r15
+```
+Más allá, de `s4` a `s11` se podría asignar dinámicamente o con stack TODO:(???) si se requieren más.
+#### x28 a x31, **`t3` a `t6`**, Temporales adicionales
+```
+Volátiles, para operaciones internas.
+En x86-64 si se agotan los registros, usar stack o variables temporales en memoria. TODO:???
+Posible traducción: reservar dinámicamente o no usar en un principio.
+```
+#### Mapeo de Registros
+
+Con este analisis en menta se crea un pimer acercamiento al mapeo de registros entre RISC-V y x86-64. En principio será de forma estática.
+
+Aquí un pequeño ejemplo:
+```golang
+var RiscvToX86 = map[string]string{
+    // Registros especiales
+    "zero": "$0",       // constante cero
+    "ra":   "%rax",     // return address
+    "sp":   "%rsp",     // stack pointer
+    "gp":   "",         // no mapeado
+    "tp":   "",         // no mapeado (TLS)
+    // ... resto de registros
+```
+
+
 
 
 ---
