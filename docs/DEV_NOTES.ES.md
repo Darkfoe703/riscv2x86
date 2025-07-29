@@ -19,6 +19,8 @@ Las arquitecturas CISC (Computadora con Conjunto de Instrucciones Complejas) y R
 
 ### Registros en **RISC-V**
 RISC-V tiene **32 registros enteros de propósito general**, de 64 bits:
+<!-- TODO: dar formato a la bliblio -->
+https://riscv.org/wp-content/uploads/2024/12/riscv-calling.pdf#:~:text=In%20addition%20to%20the%20argument%20and%20return,and%20floating%2Dpoint%20register%20in%20the%20calling%20convention.
 
 | Nombre | Alias | Convención de uso |
 |--------|-------|-------------------|
@@ -36,6 +38,13 @@ RISC-V tiene **32 registros enteros de propósito general**, de 64 bits:
 
 ### Registros **x86-64**
 x86-64 tiene registros generales de 64 bits como:
+<!-- TODO:biblio -->
+https://www.ii.uib.no/~osvik/x86-64/24593.pdf
+
+https://web.stanford.edu/class/cs107/guide/x86-64.html
+
+https://web.stanford.edu/class/archive/cs/cs107/cs107.1258/resources/x86-64-reference.pdf
+
 
 | Registro | Convención de uso |
 |----------|------------|
@@ -143,7 +152,7 @@ Posible traducción: reservar dinámicamente o no usar en un principio.
 ```
 #### Mapeo de Registros
 
-Con este analisis en menta se crea un pimer acercamiento al mapeo de registros entre RISC-V y x86-64. En principio será de forma estática.
+Con este analisis en menta se crea un primer acercamiento al mapeo de registros entre RISC-V y x86-64. En principio será de forma directa y estática.
 
 Aquí un pequeño ejemplo:
 ```golang
