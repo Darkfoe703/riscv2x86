@@ -171,7 +171,52 @@ var RiscvToX86 = map[string]string{
 
 ---
 
-## 2. Instrucciones mínimas
+## 2. Directivas de uso común
+Lo que llamamos directivas on pseudo-instrucciones del ensamblador, no generan código de máquina directamente, sino que indican cómo organizar el código en memoria o cómo debe interpretarse.
+
+### Directivas en **RISC-V**
+| Directiva RISC-V | Descripción                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| .text            | Indica el comienzo de la sección de código ejecutable.                     |
+| .data            | Indica el comienzo de la sección de datos (variables estáticas).           |
+| .bss             | Sección de variables sin inicializar.                                       |
+| .globl           | Declara un símbolo global (ej: `main`) accesible desde otros archivos.     |
+| .section         | Permite definir secciones personalizadas.                                  |
+| .word            | Almacena un valor de 4 bytes (32 bits).                                    |
+| .byte            | Almacena un valor de 1 byte.                                                |
+| .half            | Almacena un valor de 2 bytes (16 bits).                                    |
+| .dword           | Almacena un valor de 8 bytes (64 bits).                                    |
+| .string          | Almacena una cadena ASCII terminada en null (`\0`).                        |
+| .asciz           | Equivalente a `.string`, usada en algunos ensambladores.                   |
+| .align           | Alinea los datos en memoria según el valor dado (potencias de 2).           |
+| .zero            | Reserva una cantidad de bytes y los inicializa con cero.                   |
+| .size            | Define el tamaño de un símbolo.                                             |
+| .type            | Define el tipo de símbolo (función, objeto).                               |
+
+### Directivas en **x86-64**
+| Directiva x86-64 |    Descripción                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| .text            | Sección de código ejecutable.                                               |
+| .data            | Sección de datos inicializados.                                             |
+| .bss             | Sección de datos no inicializados.                                          |
+| .globl           | Declara un símbolo global (ej: `main`).                                     |
+| .section         | Define una nueva sección.                             |
+| .long            | Define una palabra de 4 bytes.                |
+| .byte            | Define un byte.                                                             |
+| .word            | Define 2 bytes                          |
+| .quad            | Define 8 bytes (64 bits).                                                   |
+| .asciz           | Define una cadena ASCII terminada en null.                                 |
+| .ascii           | Define una cadena SIN terminador null.                                      |
+| .align           | Alinea el siguiente dato según potencia de 2.                              |
+| .zero            | Rellena con ceros una cantidad de bytes.                                   |
+| .size            | Define el tamaño de un símbolo (usado en código C compilado).              |
+| .type            | Define el tipo de símbolo (ej: función).                                    |
+
+Algunas de las directivas se mantienen iguales en ambas aqruitecturas como `text, data, bss, globl, section, zero, align, type, size`. Otras, cambian de nombre o de significado, como es el caso de `word`, que en RISC-V representa 4bytes y en x86 son 2 bytes (para 4 bytes se usa `long`).
+
+Con esto mente haremos un mapeo de las directivas, del mismo modo que se hizo con los registros.
+
+## 3. Instrucciones mínimas
 Conjunto mínimo de instrucciones reales (por el momento no se tendrán en cuenta pseudo-instrucciones) RISC-V para traducir
 
 Primera selección:
